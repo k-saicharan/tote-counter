@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Tote Counter</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div id="app">
+        <video id="camera" autoplay playsinline muted></video>
+        <canvas id="canvas" style="display:none;"></canvas>
+
+        <div id="overlay">
+            <div id="count-display">
+                <span id="count">—</span>
+                <span id="label">totes</span>
+            </div>
+            <div id="confidence-badge"></div>
+        </div>
+
+        <div id="status-bar">
+            <span id="status">Initializing camera...</span>
+        </div>
+
+        <div id="controls">
+            <button id="btn-mode" title="Toggle auto/manual mode">AUTO</button>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
