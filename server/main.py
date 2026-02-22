@@ -24,6 +24,7 @@ class CountRequest(BaseModel):
 class CountResponse(BaseModel):
     count: int
     confidence: str
+    stacks: int | None = None
     warning: str | None = None
     error: str | None = None
 
@@ -53,6 +54,7 @@ async def api_count(req: CountRequest):
     return CountResponse(
         count=result.get("count", -1),
         confidence=result.get("confidence", "low"),
+        stacks=result.get("stacks"),
         warning=result.get("warning"),
         error=result.get("error"),
     )

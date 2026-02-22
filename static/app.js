@@ -138,16 +138,17 @@ async function sendForCounting() {
 
 // --- Display Update ---
 function updateDisplay(data) {
-  const { count, confidence, warning } = data;
+  const { count, confidence, warning, stacks } = data;
 
   countEl.textContent = count >= 0 ? count : "—";
 
   confidenceBadge.textContent = confidence;
   confidenceBadge.className = confidence;
 
-  countDisplay.classList.toggle("at-limit", count >= 12);
+  countDisplay.classList.remove("at-limit");
 
   let status = `Count: ${count} totes`;
+  if (stacks && stacks > 1) status += ` (${stacks} stacks)`;
   if (confidence === "medium") status += " (±1)";
   if (confidence === "low") status += " (uncertain)";
   if (warning) status += ` — ${warning}`;

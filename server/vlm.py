@@ -60,8 +60,8 @@ def count_totes(base64_image: str) -> dict:
         return {"count": -1, "confidence": "low", "error": f"Failed to parse: {raw}"}
 
     count = result.get("count", -1)
-    if isinstance(count, int) and count > 12:
-        result["count"] = 12
-        result["warning"] = "Count exceeded max 12, capped."
+    if isinstance(count, int) and count > 60:
+        result["count"] = 60
+        result["warning"] = "Count exceeded max 60, capped."
 
     return result
